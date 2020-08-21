@@ -23,12 +23,46 @@ public class Publisher {
 	private String zip; 
 	
 	
-//	@OneToMany
-//	private Set<Book> books = new HashSet<>();
+	@OneToMany
+	private Set<Book> books = new HashSet<>();
 
 	public Publisher() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Publisher [id=" + id + ", name=" + name + ", addressLine1=" + addressLine1 + ", city=" + city
+				+ ", state=" + state + ", zip=" + zip + ", books=" + books + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Publisher other = (Publisher) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	} 
+	
+	
+	
 	
 	
 	
